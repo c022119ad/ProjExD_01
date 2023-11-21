@@ -9,11 +9,10 @@ def main():
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")#練習1背景画像Surfaceの生成
     kk_img = pg.image.load("ex01/fig/3.png")
     kk_img = pg.transform.flip(kk_img,True,False)#練習2こうかとんSurefaceの反転
-    kk_imgs = [pg.transform.rotozoom(kk_img,i,1.0) for i in range (10)]#練習3こうかとんSurfaceリストの生成
+    kk_imgs = [pg.transform.rotozoom(kk_img,i,1.0) for i in range (11)]#練習3こうかとんSurfaceリストの生成
     kk_imgs+=([pg.transform.rotozoom(kk_img,10-i,1.0) for i in range (10)])
     bg_img_mir = pg.transform.flip(bg_img,True,False)
     bg_imgs = [bg_img,bg_img_mir]
-    c = 0
     tmr = 0
     mir0 = 0
     mir1 = 1
@@ -32,7 +31,6 @@ def main():
         screen.blit(kk_imgs[tmr%20],[300,200])#こうかとん生成
         pg.display.update()
         tmr += 1
-        c += 1
         if int((tmr/1600))%2 == 0:
             mir0 = 0
             mir1 = 1
